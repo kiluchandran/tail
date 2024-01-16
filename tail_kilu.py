@@ -6,6 +6,10 @@ def print_last_lines(file_name, no_of_lines):
             print(line.rstrip())
 
 
-file_name = "/home/kilu/states.txt"
-no_of_lines = 10
-print_last_lines(file_name, no_of_lines)
+def main():
+    file_name = "/home/kilu/states.txt"
+    no_of_lines = 10
+    print_last_lines(file_name, no_of_lines)
+
+
+main()
