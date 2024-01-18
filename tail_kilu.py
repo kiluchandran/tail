@@ -1,4 +1,4 @@
-import sys
+import argparse
 
 
 def print_last_lines(file_name, no_of_lines):
@@ -9,10 +9,15 @@ def print_last_lines(file_name, no_of_lines):
             print(line.rstrip())
 
 
-def main():
-    file_name = sys.argv[1]
+parser = argparse.ArgumentParser()
+parser.add_argument("input_file")
+args = parser.parse_args()
+
+
+def main(argument):
+    file_name = argument.input_file
     no_of_lines = 10
     print_last_lines(file_name, no_of_lines)
 
 
-main()
+main(args)
