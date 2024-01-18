@@ -1,3 +1,6 @@
+import sys
+
+
 def print_last_lines(file_name, no_of_lines):
     with open(file_name, "r") as file1:
         lines = file1.readlines()
@@ -7,7 +10,7 @@ def print_last_lines(file_name, no_of_lines):
 
 
 def main():
-    file_name = "/home/kilu/states.txt"
+    file_name = sys.argv[1]
     no_of_lines = 10
     print_last_lines(file_name, no_of_lines)
 
