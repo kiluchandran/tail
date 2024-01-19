@@ -11,12 +11,17 @@ def print_last_lines(file_name, no_of_lines):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("input_file")
+parser.add_argument("-n", "--number", type=int,
+                    help="display last n no of lines")
 args = parser.parse_args()
 
 
 def main(argument):
     file_name = argument.input_file
-    no_of_lines = 10
+    if args.number:
+        no_of_lines = args.number
+    else:
+        no_of_lines = 10
     print_last_lines(file_name, no_of_lines)
 
 
