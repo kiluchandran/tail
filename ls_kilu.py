@@ -12,7 +12,7 @@ parser.add_argument(
     "-t", "--time", help="display files as per last updated time", action="store_true")
 parser.add_argument(
     "-r", "--reverse", help="display files as per last updated time in reverse order", action="store_true")
-
+parser.add_argument("directory_name", default=os.getcwd())
 args = parser.parse_args()
 
 
@@ -31,12 +31,14 @@ def main():
     path = os.getcwd()  # path of the current working directory
     lists = os.listdir(path)
     lists.sort()
+
     if args.time and args.reverse:
         lists = sorted_by_modified_time_reverse(lists)
     if args.time:
         lists = sorted_by_modified_time(lists)
     if args.reverse:
         lists.reverse()
+
     for item in lists:
         if os.path.isdir(item):
             text = colored(item, 'blue')
