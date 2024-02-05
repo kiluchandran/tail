@@ -27,9 +27,8 @@ def sorted_by_modified_time_reverse(lists):
     return lists
 
 
-def main():
-    path = os.getcwd()  # path of the current working directory
-    lists = os.listdir(path)
+def main(args):
+    lists = os.listdir(args.directory_name)
     lists.sort()
 
     if args.time and args.reverse:
@@ -42,14 +41,13 @@ def main():
     for item in lists:
         if os.path.isdir(item):
             text = colored(item, 'blue')
-        elif os.path.isfile(item):
-            if os.access(item, os.X_OK):
-                text = colored(item, 'green')
-            else:
-                text = colored(item, 'grey')
+        elif os.path.isfile(item) and os.access(item, os.X_OK):
+            text = colored(item, 'green')
+        else:
+            text = colored(item, 'grey')
         print(text, end=" ")
 
     print()
 
 
-main()
+main(args)
