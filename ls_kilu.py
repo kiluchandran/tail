@@ -12,7 +12,7 @@ parser.add_argument(
     "-t", "--time", help="display files as per last updated time", action="store_true")
 parser.add_argument(
     "-r", "--reverse", help="display files as per last updated time in reverse order", action="store_true")
-parser.add_argument("directory_name", default=os.getcwd())
+parser.add_argument("directory_name", nargs="?", default=os.getcwd())
 args = parser.parse_args()
 
 
@@ -46,7 +46,6 @@ def main(args):
         else:
             text = colored(item, 'grey')
         print(text, end=" ")
-
     print()
 
 
